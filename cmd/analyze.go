@@ -51,7 +51,6 @@ var AnalyzeCmd = &cobra.Command{
 		for r := range results {
 			reports = append(reports, r)
 
-			// Gestion avancée des erreurs personnalisées
 			var fileErr *analyzer.FileNotFoundError
 			var parseErr *analyzer.ParsingError
 			msgErreur := ""
