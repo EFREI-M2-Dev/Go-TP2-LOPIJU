@@ -56,9 +56,9 @@ var AnalyzeCmd = &cobra.Command{
 			msgErreur := ""
 			if r.Status == "FAILED" {
 				if r.ErrorDetail != "" {
-					if errors.As(r.ErrorDetail, &fileErr) {
+					if errors.As(fmt.Errorf(r.ErrorDetail), &fileErr) {
 						msgErreur = "[ERREUR FICHIER] " + fileErr.Error()
-					} else if errors.As(r.ErrorDetail, &parseErr) {
+					} else if errors.As(fmt.Errorf(r.ErrorDetail), &parseErr) {
 						msgErreur = "[ERREUR PARSING] " + parseErr.Error()
 					} else {
 						msgErreur = r.ErrorDetail
